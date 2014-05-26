@@ -30,10 +30,11 @@ start_pipe_pane() {
 		tmux pipe-pane "exec cat - | ansifilter >> $log_path/$log_name"
 	elif system_osx; then
 		# OSX uses sed '-E' flag and a slightly different regex
-		# warning, very complex regex ahead
+		# Warning, very complex regex ahead.
+		# Some characters below might not be wisible from github web view.
 		tmux pipe-pane "exec cat - | sed -E \"s/(\[([0-9]{1,3}((;[0-9]{1,3})*)?)?[m|K]||]0;[^]+|[[:space:]]+$)//g\" >> $log_path/$log_name"
 	else
-		tmux pipe-pane "exec cat - | sed -r 's/\x1B\[([0-9]{1,2}(;[0-9]{1,2})?)?[m|K]//g' >> $log_path/$log_name"
+		tmux pipe-pane "exec cat - | sed -r 's/(\x1B\[([0-9]{1,2}(;[0-9]{1,2})?)?[m|K]|)//g' >> $log_path/$log_name"
 	fi
 	tmux display-message "Started logging to $log_path/$log_name"
 }
