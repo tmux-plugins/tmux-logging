@@ -36,14 +36,14 @@ start_pipe_pane() {
 	else
 		tmux pipe-pane "exec cat - | sed -r 's/(\x1B\[([0-9]{1,2}(;[0-9]{1,2})?)?[m|K]|)//g' >> $log_path/$log_name"
 	fi
-	tmux display-message "Started logging to $log_path/$log_name"
+	display_message "Started logging to $log_path/$log_name"
 }
 
 stop_pipe_pane() {
 	local log_path=$(get_log_path)
 	local log_name=$(get_log_name)
 	tmux pipe-pane
-	tmux display-message "Ended logging to $log_path/$log_name"
+	display_message "Ended logging to $log_path/$log_name"
 }
 
 pane_unique_id() {
