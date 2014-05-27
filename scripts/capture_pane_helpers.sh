@@ -1,5 +1,4 @@
-# Variables in this helper are set in the file sourcing the helper.
-
+# Variables in this helper should be set in the file sourcing the helper.
 # Required variables:
 # - path_option & default_path
 # - name_option & default_name
@@ -16,10 +15,10 @@ get_filename() {
 }
 
 capture_pane() {
+	local file="$(get_path)/$(get_filename)"
 	local capture_scope=$1
-	local file=$2
 	if [ $capture_scope == "Scrollback" ]; then
-		# copying 9M lines back will hopefully fetch whole scrollback
+		# copying 9M lines back will hopefully fetch the whole scrollback
 		tmux capture-pane -S -9000000
 	elif [ $capture_scope == "Screenshot" ]; then
 		tmux capture-pane

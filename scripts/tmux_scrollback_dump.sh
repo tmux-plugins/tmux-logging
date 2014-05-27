@@ -13,7 +13,6 @@ source $CURRENT_DIR/shared.sh
 source $CURRENT_DIR/capture_pane_helpers.sh
 
 main() {
-	local file="$(get_path)/$(get_filename)"
-	capture_pane "Scrollback" "$file"
+	capture_pane "Scrollback"
 }
 main
