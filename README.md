@@ -23,10 +23,8 @@ File name template:
 Toggles (start/stop) logging in the current pane.
 
 This feature improves the default `pipe-pane` logging mechanism by stripping
-ANSI codes.
-
-This is how the plain `pipe-pane` log output looks like if you're using
-terminal with coloring:
+ANSI codes. This is how the plain `pipe-pane` log output looks like if you're
+using terminal with coloring:
 
 ![garbled log output](/screenshots/garbled_log_output.png)
 
@@ -34,7 +32,7 @@ Garbled characters are called ANSI codes. They enable colors in terminal, but
 are just making 'noise' in the textual log output.
 
 A user will probably want to filter ANSI codes out of the log. Here's the same
-log as above when using this plugin:
+log as above when this plugin is used:
 
 ![proper log output](/screenshots/proper_log_output.png)
 
