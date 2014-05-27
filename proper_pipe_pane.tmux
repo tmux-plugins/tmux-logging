@@ -1,26 +1,24 @@
 #!/usr/bin/env bash
 
-# This plugin extends basic tmux pipe-pane (a.k.a. logging) functionality
-# nicely described here: http://unix.stackexchange.com/a/10259
-# Improvements:
-# 1. uses `ansifilter` (if it's installed) to clean out unreadable ANSI codes
-#	from the pipe-pane log
-# 2. *one* key is used to toggle tmux `pipe-pane`. That is usually possible
-#	when `pipe-pane -o` is used, but then you can't get a descriptive log
-#	message. Basically, you don't know if logging started or it just ended.
-
 CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 source $CURRENT_DIR/scripts/shared.sh
 
-default_ppp_key="P"
+default_pipe_pane_key="P"
+default_pane_screenshot_key="M-p"   # Alt-p
 
-setup_key_binding() {
-	local ppp_key=$(get_tmux_option "@ppp_key" "$default_ppp_key")
-	tmux bind-key "$ppp_key" run-shell "$CURRENT_DIR/scripts/tmux_proper_pipe_pane.sh"
+setup_pipe_pane_key_binding() {
+	local pipe_pane_key=$(get_tmux_option "@ppp_pipe_pane_key" "$default_pipe_pane_key")
+	tmux bind-key "$pipe_pane_key" run-shell "$CURRENT_DIR/scripts/tmux_proper_pipe_pane.sh"
+}
+
+setup_pane_screenshot_key_binding() {
+	local pane_screenshot_key=$(get_tmux_option "@ppp_pane_screenshot_key" "$default_pane_screenshot_key")
+	tmux bind-key "$pane_screenshot_key" run-shell "$CURRENT_DIR/scripts/tmux_pane_screenshot.sh"
 }
 
 main() {
-	setup_key_binding
+	setup_pipe_pane_key_binding
+	setup_pane_screenshot_key_binding
 }
 main
