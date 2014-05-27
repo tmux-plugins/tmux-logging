@@ -32,3 +32,10 @@ display_message() {
 	# restores original 'display-time' value
 	tmux set-option -gq display-time "$saved_display_time"
 }
+
+# simplest solution, taken from here: http://unix.stackexchange.com/a/81689
+remove_empty_lines_from_end_of_file() {
+	local file=$1
+	local temp=$(cat $file)
+	printf '%s\n' "$temp" > "$file"
+}
