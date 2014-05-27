@@ -17,10 +17,10 @@ get_filename() {
 capture_pane() {
 	local file="$(get_path)/$(get_filename)"
 	local capture_scope=$1
-	if [ $capture_scope == "Scrollback" ]; then
+	if [ $capture_scope == "History" ]; then
 		# copying 9M lines back will hopefully fetch the whole scrollback
 		tmux capture-pane -S -9000000
-	elif [ $capture_scope == "Screenshot" ]; then
+	elif [[ $capture_scope == "Screen capture" ]]; then
 		tmux capture-pane
 	else
 		# error
