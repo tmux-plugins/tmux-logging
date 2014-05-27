@@ -18,14 +18,23 @@ get_scrollback_name() {
 	tmux display-message -p "$name_template"
 }
 
+# simplest solution, taken from here: http://unix.stackexchange.com/a/81689
+remove_empty_lines_from_end_of_file() {
+	local file=$1
+	local temp=$(cat $file)
+	printf '%s\n' "$temp" > "$file"
+}
+
 scrollback_dump() {
 	local scrollback_path=$(get_scrollback_path)
 	local scrollback_name=$(get_scrollback_name)
+	local file="$scrollback_path/$scrollback_name"
 	# copying 9M lines back in the past will hopefully fetch all the history
 	tmux capture-pane -S -9000000
-	tmux save-buffer "$scrollback_path/$scrollback_name"
+	tmux save-buffer "$file"
 	tmux delete-buffer
-	display_message "Scrollback saved to $scrollback_path/$scrollback_name"
+	remove_empty_lines_from_end_of_file "$file"
+	display_message "Scrollback saved to $file"
 }
 
 main() {
