@@ -5,45 +5,29 @@ CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 default_log_path="$HOME"
 default_log_name="tmux-#{session_name}-#{window_index}-#{pane_index}-%Y%m%dT%H%M%S.log"
 
+log_path_option="@pipe_pane_path"
+log_name_option="@pipe_pane_filename"
+
 source $CURRENT_DIR/shared.sh
 
 get_log_path() {
-	get_tmux_option "@ppp_path" "$default_log_path"
+	get_tmux_option "$log_path_option" "$default_log_path"
 }
 
 get_log_name() {
-	get_tmux_option "@ppp_name" "$default_log_name"
-}
-
-ansifilter_installed() {
-	type ansifilter >/dev/null 2>&1 || return 1
-}
-
-system_osx() {
-	[ $(uname) == "Darwin" ]
+	get_tmux_option "$log_name_option" "$default_log_name"
 }
 
 start_pipe_pane() {
-	local log_path=$(get_log_path)
-	local log_name=$(get_log_name)
-	if ansifilter_installed; then
-		tmux pipe-pane "exec cat - | ansifilter >> $log_path/$log_name"
-	elif system_osx; then
-		# OSX uses sed '-E' flag and a slightly different regex
-		# Warning, very complex regex ahead.
-		# Some characters below might not be wisible from github web view.
-		tmux pipe-pane "exec cat - | sed -E \"s/(\[([0-9]{1,3}((;[0-9]{1,3})*)?)?[m|K]||]0;[^]+|[[:space:]]+$)//g\" >> $log_path/$log_name"
-	else
-		tmux pipe-pane "exec cat - | sed -r 's/(\x1B\[([0-9]{1,2}(;[0-9]{1,2})?)?[m|K]|)//g' >> $log_path/$log_name"
-	fi
-	display_message "Started logging to $log_path/$log_name"
+	local file="$(get_log_path)/$(get_log_name)"
+	$CURRENT_DIR/tmux_start_pipe_pane.sh "$file"
+	display_message "Started logging to $file"
 }
 
 stop_pipe_pane() {
-	local log_path=$(get_log_path)
-	local log_name=$(get_log_name)
+	local file="$(get_log_path)/$(get_log_name)"
 	tmux pipe-pane
-	display_message "Ended logging to $log_path/$log_name"
+	display_message "Ended logging to $file"
 }
 
 # returns a string unique to current pane
@@ -51,6 +35,7 @@ pane_unique_id() {
 	tmux display-message -p "#{session_name}_#{window_index}_#{pane_index}"
 }
 
+# saving 'logging' 'not logging' status in a variable unique to pane
 set_logging_variable() {
 	local value=$1
 	local pane_unique_id="$(pane_unique_id)"
