@@ -4,7 +4,7 @@ CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 source $CURRENT_DIR/scripts/shared.sh
 
-default_pipe_pane_key="P"			# Shift-p
+default_pipe_pane_key="P"           # Shift-p
 default_pane_screenshot_key="M-p"   # Alt-p
 default_scrollback_dump_key="M-P"   # Alt-Shift-p
 
