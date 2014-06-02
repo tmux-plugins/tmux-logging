@@ -16,9 +16,11 @@ Features:
 
 Key binding: `prefix + shift + p`<br/>
 File path: `$HOME` (user home dir)<br/>
-File name template:
+File name format:
 
     tmux-#{session_name}-#{window_index}-#{pane_index}-%Y%m%dT%H%M%S.log
+    # Example file:
+    # tmux-my-session-0-1-20140527T165614.log
 
 Toggles (start/stop) logging in the current pane.
 
@@ -40,9 +42,11 @@ log as above when this plugin is used:
 
 Key binding: `prefix + alt + p`<br/>
 File path: `$HOME` (user home dir)<br/>
-File name template:
+File name format:
 
     tmux-screen-capture-#{session_name}-#{window_index}-#{pane_index}-%Y%m%dT%H%M%S.log
+    # Example file:
+    # tmux-screen-capture-my-session-0-1-20140527T165614.log
 
 Visible text in the current pane is saved to a file. Equivalent of a "texual
 screenshot".
@@ -51,9 +55,11 @@ screenshot".
 
 Key binding: `prefix + alt + shift + p`<br/>
 File path: `$HOME` (user home dir)<br/>
-File name template:
+File name format:
 
     tmux-history-#{session_name}-#{window_index}-#{pane_index}-%Y%m%dT%H%M%S.log
+    # Example file:
+    # tmux-history-my-session-0-1-20140527T165614.log
 
 Saves complete pane history to a file. Convenient if you retroactively remember
 you need to log/save all the work.
