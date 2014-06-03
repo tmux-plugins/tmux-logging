@@ -114,6 +114,20 @@ If you're on OSX, it is recommened to install `ansifilter`:
 It helps with removing ANSI codes from the log. If `ansifilter` is not present,
 ANSI codes are removed with `sed`.
 
+### Other plugins
+
+You might also find these useful:
+
+- [pain control](https://github.com/bruno-/tmux_pain_control) - useful standard
+  bindings for controlling panes
+- [goto session](https://github.com/bruno-/tmux_goto_session) - faster session
+  switching
+- [battery osx](https://github.com/bruno-/tmux_battery_osx) - battery status
+  for OSX in Tmux `status-right`
+- [online status](https://github.com/bruno-/tmux_online_status) - online status
+  indicator in Tmux `status-right`. Useful when on flaky connection to see if
+  you're online.
+
 ### License
 
 [MIT](LICENSE.md)
