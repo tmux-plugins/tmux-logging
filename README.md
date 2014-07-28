@@ -73,24 +73,24 @@ With modern computers it is ok to set this option to a high number:
     # in .tmux.conf
     set -g history-limit 50000
 
-### Installation with [Tmux Plugin Manager](https://github.com/bruno-/tpm) (recommended)
+### Installation with [Tmux Plugin Manager](https://github.com/tmux-plugins/tpm) (recommended)
 
 Add plugin to the list of TPM plugins in `.tmux.conf`:
 
-    set -g @tpm_plugins "       \
-      bruno-/tpm                \
-      bruno-/tmux_logging       \
+    set -g @tpm_plugins "          \
+      tmux-plugins/tpm             \
+      tmux-plugins/tmux-logging    \
     "
 
 Hit `prefix + I` to fetch the plugin and source it.
 
-You should now have all `tmux_logging` key bindings defined.
+You should now have all `tmux-logging` key bindings defined.
 
 ### Manual Installation
 
 Clone the repo:
 
-    $ git clone https://github.com/bruno-/tmux_logging ~/clone/path
+    $ git clone https://github.com/tmux-plugins/tmux-logging ~/clone/path
 
 Add this line to the bottom of `.tmux.conf`:
 
@@ -101,7 +101,7 @@ Reload TMUX environment:
     # type this in terminal
     $ tmux source-file ~/.tmux.conf
 
-You should now have all `tmux_logging` key bindings defined.
+You should now have all `tmux-logging` key bindings defined.
 
 ### Installing `ansifilter` (recommended for OSX users)
 
@@ -118,15 +118,10 @@ ANSI codes are removed with `sed`.
 
 You might also find these useful:
 
-- [pain control](https://github.com/bruno-/tmux_pain_control) - useful standard
+- [pain control](https://github.com/tmux-plugins/tmux-pain-control) - useful standard
   bindings for controlling panes
-- [goto session](https://github.com/bruno-/tmux_goto_session) - faster session
+- [goto session](https://github.com/tmux-plugins/tmux-goto-session) - faster session
   switching
-- [battery osx](https://github.com/bruno-/tmux_battery_osx) - battery status
-  for OSX in Tmux `status-right`
-- [online status](https://github.com/bruno-/tmux_online_status) - online status
-  indicator in Tmux `status-right`. Useful when on flaky connection to see if
-  you're online.
 
 ### License
 
