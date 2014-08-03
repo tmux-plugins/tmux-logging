@@ -120,8 +120,8 @@ You might also find these useful:
 
 - [pain control](https://github.com/tmux-plugins/tmux-pain-control) - useful standard
   bindings for controlling panes
-- [goto session](https://github.com/tmux-plugins/tmux-goto-session) - faster session
-  switching
+- [sessionist](https://github.com/tmux-plugins/tmux-sessionist) - lightweight
+  tmux utils for switching and creating sessions
 
 ### License
 
