@@ -11,6 +11,7 @@ Features:
 3. Enables saving a complete history of the current pane<br/>
    Everything that has been typed and all the output since the creation of the
    current pane can be saved to a file.
+4. Clear pane history with `prefix + M-c`
 
 ### 1. Logging
 
@@ -72,6 +73,12 @@ With modern computers it is ok to set this option to a high number:
 
     # in .tmux.conf
     set -g history-limit 50000
+
+### 4. Clear pane history
+
+Key binding: `prefix + alt + c`
+
+This is just a convenience key binding.
 
 ### Installation with [Tmux Plugin Manager](https://github.com/tmux-plugins/tpm) (recommended)
 
