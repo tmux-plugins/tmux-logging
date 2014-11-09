@@ -1,6 +1,7 @@
 # Changelog
 
 ### master
+- improve `capture-pane`. It is now piped directly to the target file.
 
 ### v0.0.2, 2014-08-26
 - add other plugins list to the README
