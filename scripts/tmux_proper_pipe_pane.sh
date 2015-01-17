@@ -3,7 +3,7 @@
 CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 default_log_path="$HOME"
-default_log_name="tmux-#{session_name}-#{window_index}-#{pane_index}-%Y%m%dT%H%M%S.log"
+default_log_name="tmux-#S-#I-#P-%Y%m%dT%H%M%S.log"
 
 log_path_option="@pipe_pane_path"
 log_name_option="@pipe_pane_filename"
@@ -32,7 +32,7 @@ stop_pipe_pane() {
 
 # returns a string unique to current pane
 pane_unique_id() {
-	tmux display-message -p "#{session_name}_#{window_index}_#{pane_index}"
+	tmux display-message -p "#S_#I_#P"
 }
 
 # saving 'logging' 'not logging' status in a variable unique to pane
