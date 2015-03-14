@@ -6,8 +6,8 @@ CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 default_path="$HOME"
 default_name="tmux-screen-capture-#{session_name}-#{window_index}-#{pane_index}-%Y%m%dT%H%M%S.log"
 
-path_option="@screenshot_path"
-name_option="@screenshot_filename"
+path_option="@screen-capture-path"
+name_option="@screen-capture-filename"
 
 source "$CURRENT_DIR/variables.sh"
 source "$CURRENT_DIR/shared.sh"

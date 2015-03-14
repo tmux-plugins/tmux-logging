@@ -6,8 +6,8 @@ CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 default_path="$HOME"
 default_name="tmux-history-#{session_name}-#{window_index}-#{pane_index}-%Y%m%dT%H%M%S.log"
 
-path_option="@scrollback_dump_path"
-name_option="@scrollback_dump_filename"
+path_option="@save-complete-history-path"
+name_option="@save-complete-history-filename"
 
 source "$CURRENT_DIR/variables.sh"
 source "$CURRENT_DIR/shared.sh"

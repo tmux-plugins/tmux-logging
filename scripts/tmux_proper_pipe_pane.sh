@@ -5,8 +5,8 @@ CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 default_log_path="$HOME"
 default_log_name="tmux-#{session_name}-#{window_index}-#{pane_index}-%Y%m%dT%H%M%S.log"
 
-log_path_option="@pipe_pane_path"
-log_name_option="@pipe_pane_filename"
+log_path_option="@logging-path"
+log_name_option="@logging-filename"
 
 source "$CURRENT_DIR/variables.sh"
 source "$CURRENT_DIR/shared.sh"
