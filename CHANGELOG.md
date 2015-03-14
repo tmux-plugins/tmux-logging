@@ -1,6 +1,7 @@
 # Changelog
 
 ### master
+- update readme
 
 ### v1.0.0, 2014-11-09
 - improve `capture-pane`. It is now piped directly to the target file.

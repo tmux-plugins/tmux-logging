@@ -11,7 +11,7 @@ Features:
 3. Enables saving a complete history of the current pane<br/>
    Everything that has been typed and all the output since the creation of the
    current pane can be saved to a file.
-4. Clear pane history with `prefix + M-c`
+4. Clear pane history with `prefix + alt + c`
 
 ### 1. Logging
 
@@ -84,10 +84,10 @@ This is just a convenience key binding.
 
 Add plugin to the list of TPM plugins in `.tmux.conf`:
 
-    set -g @tpm_plugins "          \
+    set -g @tpm_plugins '          \
       tmux-plugins/tpm             \
       tmux-plugins/tmux-logging    \
-    "
+    '
 
 Hit `prefix + I` to fetch the plugin and source it.
 
@@ -115,7 +115,7 @@ You should now have all `tmux-logging` key bindings defined.
 [ansifilter](http://www.andre-simon.de/doku/ansifilter/en/ansifilter.php)
 is a program specialized for removing (or working with) ANSI codes.
 
-If you're on OSX, it is recommened to install `ansifilter`:
+If you're on OSX, it is recommeneded to install `ansifilter`:
 `$ brew install ansifilter`
 
 It helps with removing ANSI codes from the log. If `ansifilter` is not present,
@@ -125,10 +125,15 @@ ANSI codes are removed with `sed`.
 
 You might also find these useful:
 
+- [resurrect](https://github.com/tmux-plugins/tmux-resurrect) - restore tmux
+  environment after system restart
 - [pain control](https://github.com/tmux-plugins/tmux-pain-control) - useful standard
   bindings for controlling panes
 - [sessionist](https://github.com/tmux-plugins/tmux-sessionist) - lightweight
   tmux utils for switching and creating sessions
+
+You might want to follow [@brunosutic](https://twitter.com/brunosutic) on
+twitter if you want to hear about new tmux plugins or feature updates.
 
 ### License
 
