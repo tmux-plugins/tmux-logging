@@ -2,6 +2,7 @@
 
 ### master
 - update readme
+- extract default keys and key options to `variables.sh` file
 
 ### v1.0.0, 2014-11-09
 - improve `capture-pane`. It is now piped directly to the target file.
