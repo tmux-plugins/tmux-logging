@@ -1,11 +1,14 @@
 # Changelog
 
 ### master
+
+### v2.0.0, 2015-03-14
 - update readme
 - extract default keys and key options to `variables.sh` file
 - require tmux version 1.9 or greater to use the plugin
 - change all internal variable names (BREAKING CHANGE!)
 - change internal script names
+- lot of internal refactoring
 
 ### v1.0.0, 2014-11-09
 - improve `capture-pane`. It is now piped directly to the target file.
