@@ -21,7 +21,7 @@ get_log_name() {
 
 start_pipe_pane() {
 	local file="$(get_log_path)/$(get_log_name)"
-	$CURRENT_DIR/tmux_start_pipe_pane.sh "$file"
+	"$CURRENT_DIR/start_logging.sh" "$file"
 	display_message "Started logging to $file"
 }
 
