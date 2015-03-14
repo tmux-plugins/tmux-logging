@@ -39,3 +39,7 @@ remove_empty_lines_from_end_of_file() {
 	local temp=$(cat $file)
 	printf '%s\n' "$temp" > "$file"
 }
+
+supported_tmux_version_ok() {
+	$CURRENT_DIR/check_tmux_version.sh "$SUPPORTED_VERSION"
+}

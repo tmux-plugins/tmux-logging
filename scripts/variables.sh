@@ -1,3 +1,7 @@
+SUPPORTED_VERSION="1.9"
+
+# Key binding options and defaults
+
 pipe_pane_key_option="@pipe-pane-key"
 default_pipe_pane_key="P" # Shift-p
 

@@ -9,10 +9,13 @@ default_name="tmux-history-#{session_name}-#{window_index}-#{pane_index}-%Y%m%dT
 path_option="@scrollback_dump_path"
 name_option="@scrollback_dump_filename"
 
-source $CURRENT_DIR/shared.sh
-source $CURRENT_DIR/capture_pane_helpers.sh
+source "$CURRENT_DIR/variables.sh"
+source "$CURRENT_DIR/shared.sh"
+source "$CURRENT_DIR/capture_pane_helpers.sh"
 
 main() {
-	capture_pane "History"
+	if supported_tmux_version_ok; then
+		capture_pane "History"
+	fi
 }
 main

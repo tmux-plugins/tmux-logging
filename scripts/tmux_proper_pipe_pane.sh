@@ -8,7 +8,8 @@ default_log_name="tmux-#{session_name}-#{window_index}-#{pane_index}-%Y%m%dT%H%M
 log_path_option="@pipe_pane_path"
 log_name_option="@pipe_pane_filename"
 
-source $CURRENT_DIR/shared.sh
+source "$CURRENT_DIR/variables.sh"
+source "$CURRENT_DIR/shared.sh"
 
 get_log_path() {
 	get_tmux_option "$log_path_option" "$default_log_path"
@@ -65,6 +66,8 @@ toggle_pipe_pane() {
 }
 
 main() {
-	toggle_pipe_pane
+	if supported_tmux_version_ok; then
+		toggle_pipe_pane
+	fi
 }
 main

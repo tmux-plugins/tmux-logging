@@ -2,8 +2,8 @@
 
 CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-source "$CURRENT_DIR/scripts/shared.sh"
 source "$CURRENT_DIR/scripts/variables.sh"
+source "$CURRENT_DIR/scripts/shared.sh"
 
 setup_pipe_pane_key_binding() {
 	local key=$(get_tmux_option "$pipe_pane_key_option" "$default_pipe_pane_key")
