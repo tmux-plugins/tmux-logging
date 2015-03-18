@@ -1,6 +1,8 @@
 # Changelog
 
 ### master
+- `capture-pane` gets a `-J` flag. It joins wrapped lines and preserves trailing
+  spaces at each line's end.
 
 ### v2.0.0, 2015-03-14
 - update readme
