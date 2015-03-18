@@ -18,8 +18,8 @@ capture_pane() {
 	local file="$(get_path)/$(get_filename)"
 	local capture_scope=$1
 	if [ $capture_scope == "History" ]; then
-		# copying 9M lines back will hopefully fetch the whole scrollback
-		tmux capture-pane -J -S -9000000 -p > "$file"
+		local history_limit="$(tmux display-message -p -F "#{history_limit}")"
+		tmux capture-pane -J -S "-${history_limit}" -p > "$file"
 	elif [[ $capture_scope == "Screen capture" ]]; then
 		tmux capture-pane -J -p > "$file"
 	else
