@@ -1,6 +1,8 @@
 # Changelog
 
 ### master
+
+### v2.1.0, 2015-03-18
 - `capture-pane` gets a `-J` flag. It joins wrapped lines and preserves trailing
   spaces at each line's end.
 - when capturing whole history, do not guess its size, but get it from
