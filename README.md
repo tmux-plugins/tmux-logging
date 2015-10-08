@@ -13,6 +13,8 @@ Features:
    current pane can be saved to a file.
 4. Clear pane history with `prefix + alt + c`
 
+Tested and working on Linux, OSX and Cygwin.
+
 ### 1. Logging
 
 Key binding: `prefix + shift + p`<br/>
