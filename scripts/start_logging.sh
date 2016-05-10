@@ -24,7 +24,7 @@ pipe_pane_sed_osx() {
 
 pipe_pane_sed() {
 	local ansi_codes="(\x1B\[([0-9]{1,2}(;[0-9]{1,2})?)?[m|K]|)"
-	tmux pipe-pane "exec cat - | sed -r 's/$ansi_codes//g' >> $FILE"
+	tmux pipe-pane "exec cat - | sed -u -r 's/$ansi_codes//g' >> $FILE"
 }
 
 start_pipe_pane() {
