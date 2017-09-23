@@ -2,13 +2,13 @@
 
 Features:
 
-1. Enables logging of all output in the current pane<br/>
+1. Logging of all output in the current pane<br/>
    After you start logging, everything that's typed and all the output will be
    saved to a file. Convenient for keeping track of your work.
-2. Enables "screen capture" of the current pane<br/>
+2. Current pane "Screen Capture"<br/>
    All the text visible in the current pane is saved to a file. Like a
    screenshot, but textual.
-3. Enables saving a complete history of the current pane<br/>
+3. Save a complete history of current pane<br/>
    Everything that has been typed and all the output since the creation of the
    current pane can be saved to a file.
 4. Clear pane history with `prefix + alt + c`
@@ -17,64 +17,38 @@ Tested and working on Linux, OSX and Cygwin.
 
 ### 1. Logging
 
-Key binding: `prefix + shift + p`<br/>
-File path: `$HOME` (user home dir)<br/>
-File name format:
+Toggle (start/stop) logging in the current pane.
 
-    tmux-#{session_name}-#{window_index}-#{pane_index}-%Y%m%dT%H%M%S.log
-    # Example file:
-    # tmux-my-session-0-1-20140527T165614.log
+* Key binding: `prefix + shift + p`
+* File name format: `tmux-#{session_name}-#{window_index}-#{pane_index}-%Y%m%dT%H%M%S.log`
+* File path: `$HOME` (user home dir)
+  * Example file: `~/tmux-my-session-0-1-20140527T165614.log`
 
-Toggles (start/stop) logging in the current pane.
+### 2. "Screen Capture"
 
-This feature improves the default `pipe-pane` logging mechanism by stripping
-ANSI codes. This is how the plain `pipe-pane` log output looks like if you're
-using terminal with coloring:
+Save visible text, in the current pane. Equivalent of a "texual screenshot".
 
-![garbled log output](/screenshots/garbled_log_output.png)
-
-Garbled characters are called ANSI codes. They enable colors in terminal, but
-are just making 'noise' in the textual log output.
-
-A user will probably want to filter ANSI codes out of the log. Here's the same
-log as above when this plugin is used:
-
-![proper log output](/screenshots/proper_log_output.png)
-
-### 2. "Screen capture"
-
-Key binding: `prefix + alt + p`<br/>
-File path: `$HOME` (user home dir)<br/>
-File name format:
-
-    tmux-screen-capture-#{session_name}-#{window_index}-#{pane_index}-%Y%m%dT%H%M%S.log
-    # Example file:
-    # tmux-screen-capture-my-session-0-1-20140527T165614.log
-
-Visible text in the current pane is saved to a file. Equivalent of a "texual
-screenshot".
+* Key binding: `prefix + alt + p`
+* File name format: `tmux-screen-capture-#{session_name}-#{window_index}-#{pane_index}-%Y%m%dT%H%M%S.log`
+* File path: `$HOME` (user home dir)
+  * Example file: `tmux-screen-capture-my-session-0-1-20140527T165614.log`
 
 ### 3. Save complete history
 
-Key binding: `prefix + alt + shift + p`<br/>
-File path: `$HOME` (user home dir)<br/>
-File name format:
-
-    tmux-history-#{session_name}-#{window_index}-#{pane_index}-%Y%m%dT%H%M%S.log
-    # Example file:
-    # tmux-history-my-session-0-1-20140527T165614.log
-
-Saves complete pane history to a file. Convenient if you retroactively remember
+Save complete pane history to a file. Convenient if you retroactively remember
 you need to log/save all the work.
 
-**NOTE**: this functionality depends on the value of `history-limit` - it
-determines the number of lines Tmux keeps in the scrollback buffer. Everything
-Tmux kept will also be saved to a file.
+* Key binding: `prefix + alt + shift + p`
+* File name format: `tmux-history-#{session_name}-#{window_index}-#{pane_index}-%Y%m%dT%H%M%S.log`
+* File path: `$HOME` (user home dir)
+  * Example file: `tmux-history-my-session-0-1-20140527T165614.log`
 
-With modern computers it is ok to set this option to a high number:
+**NOTE**: this functionality depends on the value of `history-limit` - the number
+of lines Tmux keeps in the scrollback buffer. Only what Tmux kept will also be saved,
+to a file.
 
-    # in .tmux.conf
-    set -g history-limit 50000
+Use `set -g history-limit 50000` in .tmux.conf, with modern computers
+it is ok to set this option to a high number.
 
 ### 4. Clear pane history
 
@@ -111,14 +85,28 @@ You should now have all `tmux-logging` key bindings defined.
 
 ### Installing `ansifilter` (recommended for OSX users)
 
-[ansifilter](http://www.andre-simon.de/doku/ansifilter/en/ansifilter.php)
-is a program specialized for removing (or working with) ANSI codes.
-
 If you're on OSX, it is recommeneded to install `ansifilter`:
 `$ brew install ansifilter`
 
+[ansifilter](http://www.andre-simon.de/doku/ansifilter/en/ansifilter.php)
+is a program specialized for removing (or working with) ANSI codes.
+
 It helps with removing ANSI codes from the log. If `ansifilter` is not present,
 ANSI codes are removed with `sed`.
+
+This feature improves the default `pipe-pane` logging mechanism by stripping
+ANSI codes. This is how the plain `pipe-pane` log output looks like if you're
+using terminal with coloring:
+
+![garbled log output](/screenshots/garbled_log_output.png)
+
+Garbled characters are called ANSI codes. They enable colors in terminal, but
+are just making 'noise' in the textual log output.
+
+A user will probably want to filter ANSI codes out of the log. Here's the same
+log as above when this plugin is used:
+
+![proper log output](/screenshots/proper_log_output.png)
 
 ### Other plugins
 
