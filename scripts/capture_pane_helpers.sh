@@ -4,7 +4,10 @@
 # - name_option & default_name
 
 get_path() {
-	get_tmux_option "$path_option" "$default_path"
+	local path_template=$(get_tmux_option "$path_option" "$default_path")
+	local check_folder=$(tmux display-message -p "$path_template")
+	mkdir -p "${check_folder}"
+	echo "${check_folder}"
 }
 
 # `tmux save-buffer` command does not perform interpolation, so we're doing it
