@@ -5,21 +5,18 @@ CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 source "$CURRENT_DIR/variables.sh"
 source "$CURRENT_DIR/shared.sh"
 
-get_filename() {
-	local logging_path="$(get_tmux_option "$logging_path_option" "$default_logging_path")"
-	local logging_filename="$(get_tmux_option "$logging_filename_option" "$default_logging_filename")"
-	echo "${logging_path}/${logging_filename}"
-}
 
 start_pipe_pane() {
-	local filename="$(get_filename)"
-	"$CURRENT_DIR/start_logging.sh" "$filename"
-	display_message "Started logging to $filename"
+	local file=$(tmux display-message -p "$logging_full_filename")
+	local path=$(tmux display-message -p "$logging_path")
+	mkdir -p "$path"
+	"$CURRENT_DIR/start_logging.sh" "$file"
+	display_message "Started logging to $logging_full_filename"
 }
 
 stop_pipe_pane() {
 	tmux pipe-pane
-	display_message "Ended logging to $(get_filename)"
+	display_message "Ended logging to $logging_full_filename"
 }
 
 # returns a string unique to current pane
