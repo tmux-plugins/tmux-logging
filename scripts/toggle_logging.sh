@@ -7,11 +7,9 @@ source "$CURRENT_DIR/shared.sh"
 
 
 start_pipe_pane() {
-	local file=$(tmux display-message -p "$logging_full_filename")
-	local path=$(tmux display-message -p "$logging_path")
-	mkdir -p "$path"
-	"$CURRENT_DIR/start_logging.sh" "$file"
-	display_message "Started logging to $logging_full_filename"
+	local file=$(expand_tmux_format_path "${logging_full_filename}")
+	"$CURRENT_DIR/start_logging.sh" "${file}"
+	display_message "Started logging to ${logging_full_filename}"
 }
 
 stop_pipe_pane() {

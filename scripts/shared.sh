@@ -43,3 +43,13 @@ remove_empty_lines_from_end_of_file() {
 supported_tmux_version_ok() {
 	$CURRENT_DIR/check_tmux_version.sh "$SUPPORTED_VERSION"
 }
+
+# Checking full path to logfile and expanding tmux format in normal path
+# As example: expand %Y-%m-%d to current date
+expand_tmux_format_path() {
+	local tmux_format_path=$1
+	local full_path=$(tmux display-message -p "${tmux_format_path}")
+	local full_directory_path=${full_path%/*}
+	mkdir -p "${full_directory_path}"
+	echo "${full_path}"
+}
