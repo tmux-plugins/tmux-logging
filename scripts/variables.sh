@@ -24,7 +24,7 @@ filename_suffix="#{session_name}-#{window_index}-#{pane_index}-%Y%m%dT%H%M%S.log
 # Logging options
 default_logging_path="$HOME"
 logging_path=$(tmux show-option -gqv "@logging-path")
-logging_path=${logging_path:-$default_clear_history_key}
+logging_path=${logging_path:-$default_logging_path}
 
 default_logging_filename="tmux-${filename_suffix}"
 logging_filename=$(tmux show-option -gqv "@logging-filename")
