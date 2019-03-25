@@ -26,7 +26,7 @@ Toggle (start/stop) logging in the current pane.
 
 ### 2. "Screen Capture"
 
-Save visible text, in the current pane. Equivalent of a "texual screenshot".
+Save visible text, in the current pane. Equivalent of a "textual screenshot".
 
 * Key binding: `prefix + alt + p`
 * File name format: `tmux-screen-capture-#{session_name}-#{window_index}-#{pane_index}-%Y%m%dT%H%M%S.log`
