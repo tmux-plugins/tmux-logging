@@ -119,9 +119,6 @@ You might also find these useful:
 - [sessionist](https://github.com/tmux-plugins/tmux-sessionist) - lightweight
   tmux utils for switching and creating sessions
 
-You might want to follow [@brunosutic](https://twitter.com/brunosutic) on
-twitter if you want to hear about new tmux plugins or feature updates.
-
 ### License
 
 [MIT](LICENSE.md)
