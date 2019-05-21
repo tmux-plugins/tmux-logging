@@ -56,6 +56,21 @@ Key binding: `prefix + alt + c`
 
 This is just a convenience key binding.
 
+### Settings
+
+Keybindings could be customized with
+
+    set -g @logging_key "P" # Shift-p
+    set -g @screen-capture-key "M-p" # Alt-p
+    set -g @save-complete-history-key "M-P" # Alt-Shift-p
+    set -g @clear-history-key "M-c" # Alt-c
+
+Besides, logging locations could be customized as well.
+
+    set -g @logging-path "~" # default $HOME
+    set -g @screen-capture-path "~"
+    set -g @save-complete-history-path "~"
+
 ### Installation with [Tmux Plugin Manager](https://github.com/tmux-plugins/tpm) (recommended)
 
 Add plugin to the list of TPM plugins in `.tmux.conf`:
