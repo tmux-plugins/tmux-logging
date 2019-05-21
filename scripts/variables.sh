@@ -30,7 +30,8 @@ default_logging_filename="tmux-${filename_suffix}"
 logging_filename=$(tmux show-option -gqv "@logging-filename")
 logging_filename=${logging_filename:-$default_logging_filename}
 
-logging_full_filename="${logging_path}/${logging_filename}"
+logging_full_filename=$(tmux show-option -gqv "@logging-full-filename")
+logging_full_filename=${logging_full_filename:-$logging_path/$logging_filename}
 
 # Screen capture options
 default_screen_capture_path="$HOME"
