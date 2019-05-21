@@ -60,7 +60,7 @@ This is just a convenience key binding.
 
 Keybindings could be customized with
 
-    set -g @logging_key "P" # Shift-p
+    set -g @logging-key "P" # Shift-p
     set -g @screen-capture-key "M-p" # Alt-p
     set -g @save-complete-history-key "M-P" # Alt-Shift-p
     set -g @clear-history-key "M-c" # Alt-c
