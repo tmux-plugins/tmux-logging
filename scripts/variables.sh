@@ -14,7 +14,7 @@ default_save_complete_history_key="M-P" # Alt-Shift-p
 save_complete_history_key=$(tmux show-option -gqv "@save-complete-history-key")
 save_complete_history_key=${save_complete_history_key:-$default_save_complete_history_key}
 
-default_snapshot_and_log_key="C-P" # Control-Alt-Shift-p
+default_snapshot_and_log_key="C-P" # Control-Shift-p
 snapshot_and_log_key=$(tmux show-option -gqv "@snapshot_and_log")
 snapshot_and_log_key=${snapshot_and_log_key:-$default_snapshot_and_log_key}
 
