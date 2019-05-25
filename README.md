@@ -47,13 +47,13 @@ you need to log/save all the work.
 
 Save complete pane history to a file then continue logging to it. Convenient if you retroactively remember you need to log/save all the work, including what follows.
 
-* Key binding: `prefix + ctrl + shift + p`
+* Key binding: `prefix + ctrl + P`
 * File name format: `tmux-#{session_name}-#{window_index}-#{pane_index}-%Y%m%dT%H%M%S.log`
 * File path: `$HOME` (user home dir)
   * Example file: `~/tmux-my-session-0-1-20140527T165614.log`
 
 
-**NOTE**: this functionality depends on the value of `history-limit` - the number
+**NOTE**: the last 2 features functionality depends on the value of `history-limit` - the number
 of lines Tmux keeps in the scrollback buffer. Only what Tmux kept will also be saved,
 to a file.
 
