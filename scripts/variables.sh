@@ -53,3 +53,7 @@ save_complete_history_filename=$(tmux show-option -gqv "@save-complete-history-f
 save_complete_history_filename=${save_complete_history_filename:-$default_save_complete_history_filename}
 
 save_complete_history_full_filename="${save_complete_history_path}/${save_complete_history_filename}"
+
+default_logging_filter="auto"
+logging_filter=$(tmux show-option -gqv "@logging_filter")
+logging_filter=${logging_filter:-$default_logging_filter}
