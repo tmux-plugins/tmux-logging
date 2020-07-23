@@ -85,7 +85,7 @@ You should now have all `tmux-logging` key bindings defined.
 
 ### Installing `ansifilter` (recommended for OSX users)
 
-If you're on OSX, it is recommeneded to install `ansifilter`:
+If you're on OSX, it is recommended to install `ansifilter`:
 `$ brew install ansifilter`
 
 [ansifilter](http://www.andre-simon.de/doku/ansifilter/en/ansifilter.php)
