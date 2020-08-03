@@ -43,6 +43,10 @@ screen_capture_filename=${screen_capture_filename:-$default_screen_capture_filen
 
 screen_capture_full_filename="${screen_capture_path}/${screen_capture_filename}"
 
+default_screen_capture_pipe_command="cat"
+screen_capture_pipe_command=$(tmux show-option -gqv "@screen-capture-pipe-command")
+screen_capture_pipe_command=${screen_capture_pipe_command:-$default_screen_capture_pipe_command}
+
 # Save complete history options
 default_save_complete_history_path="$HOME"
 save_complete_history_path=$(tmux show-option -gqv "@save-complete-history-path")
