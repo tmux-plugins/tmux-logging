@@ -5,6 +5,7 @@ SUPPORTED_VERSION="1.9"
 default_logging_key="P" # Shift-p
 logging_key=$(tmux show-option -gqv "@logging_key")
 logging_key=${logging_key:-$default_logging_key}
+log_always=$(tmux show-option -gqv "@log-always")
 
 default_pane_screen_capture_key="M-p" # Alt-p
 pane_screen_capture_key=$(tmux show-option -gqv "@screen-capture-key")

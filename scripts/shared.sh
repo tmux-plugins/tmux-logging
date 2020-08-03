@@ -53,3 +53,20 @@ expand_tmux_format_path() {
 	mkdir -p "${full_directory_path}"
 	echo "${full_path}"
 }
+
+# returns a string unique to current pane
+pane_unique_id() {
+	tmux display-message -p "#{session_name}_#{window_index}_#{pane_index}"
+}
+
+
+# this function checks if logging is happening for the current pane
+is_logging() {
+	local pane_unique_id="$(pane_unique_id)"
+	local current_pane_logging="$(get_tmux_option "@${pane_unique_id}" "not logging")"
+	if [ "$current_pane_logging" == "logging" ]; then
+		return 0
+	else
+		return 1
+	fi
+}
