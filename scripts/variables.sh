@@ -3,7 +3,7 @@ SUPPORTED_VERSION="1.9"
 # Key binding options and defaults
 
 default_logging_key="P" # Shift-p
-logging_key=$(tmux show-option -gqv "@logging_key")
+logging_key=$(tmux show-option -gqv "@logging-key")
 logging_key=${logging_key:-$default_logging_key}
 
 default_pane_screen_capture_key="M-p" # Alt-p
@@ -19,7 +19,9 @@ clear_history_key=$(tmux show-option -gqv "@clear-history-key")
 clear_history_key=${clear_history_key:-$default_clear_history_key}
 
 # General options
-filename_suffix="#{session_name}-#{window_index}-#{pane_index}-%Y%m%dT%H%M%S.log"
+default_filename_suffix="#{session_name}-#{window_index}-#{pane_index}-%Y%m%dT%H%M%S.log"
+filename_suffix=$(tmux show-option -gqv "@filename-suffix")
+filename_suffix=${filename_suffix:-$default_filename_suffix}
 
 # Logging options
 default_logging_path="$HOME"
