@@ -108,6 +108,10 @@ log as above when this plugin is used:
 
 ![proper log output](/screenshots/proper_log_output.png)
 
+### Configuration Docs
+
+- [Changing default options](docs/configuration.md).
+
 ### Other plugins
 
 You might also find these useful:
