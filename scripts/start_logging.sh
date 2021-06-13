@@ -2,6 +2,8 @@
 
 # path to log file - global variable
 FILE="$1"
+# LOG FILTER
+LOGGING_FILTER="$2"
 
 ansifilter_installed() {
 	type ansifilter >/dev/null 2>&1 || return 1
@@ -27,15 +29,34 @@ pipe_pane_sed() {
 	tmux pipe-pane "exec cat - | sed -r 's/$ansi_codes//g' >> $FILE"
 }
 
+pipe_pane_no_filter() {
+	tmux pipe-pane "exec cat >> $FILE"
+}
+
 start_pipe_pane() {
-	if ansifilter_installed; then
-		pipe_pane_ansifilter
-	elif system_osx; then
-		# OSX uses sed '-E' flag and a slightly different regex
-		pipe_pane_sed_osx
-	else
-		pipe_pane_sed
-	fi
+  case "$LOGGING_FILTER" in
+    auto)
+      if ansifilter_installed; then
+        pipe_pane_ansifilter
+      elif system_osx; then
+        # OSX uses sed '-E' flag and a slightly different regex
+        pipe_pane_sed_osx
+      else
+        pipe_pane_sed
+      fi
+      ;;
+    ansifilter)
+      pipe_pane_ansifilter
+      ;;
+    sed_osx)
+      pipe_pane_sed_osx
+      ;;
+    sed)
+      pipe_pane_sed
+      ;;
+    *)
+      pipe_pane_no_filter
+  esac
 }
 
 main() {
