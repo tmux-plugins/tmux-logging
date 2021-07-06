@@ -11,6 +11,7 @@ main() {
 	tmux bind-key "$pane_screen_capture_key" run-shell "$CURRENT_DIR/scripts/screen_capture.sh"
 	tmux bind-key "$save_complete_history_key" run-shell "$CURRENT_DIR/scripts/save_complete_history.sh"
 	tmux bind-key "$clear_history_key" run-shell "$CURRENT_DIR/scripts/clear_history.sh"
+	tmux bind-key "$snapshot_and_log_key" run-shell "$CURRENT_DIR/scripts/snapshot_and_log.sh"
 }
 
 main
